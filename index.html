@@ -24,9 +24,10 @@
   <div id="app">
     <!-- Menu -->
     <div class="menu-icon" @click="toggleMenu">
-      <i class="fas fa-bars"></i>
+  <i :class="menuOpen ? 'fas fa-times' : 'fas fa-bars'"></i>
+
     </div>
-    <ul class="menu">
+ <ul class="menu" :class="{ 'menu--show': menuOpen }">
       <li @click="loadChannel('SVT 1')">SVT 1</li>
       <li @click="loadChannel('SVT 2')">SVT 2</li>
       <li @click="loadChannel('SVT Barn')">SVT Barn</li>
@@ -43,7 +44,7 @@
           <ul v-if="program.length > 0" class="list-group list-group-flush">
             <li v-for="p in program" :key="p.start" class="list-group-item">
               <strong>{{ formatTime(p.start) }}</strong>
-              <div>{{ p.name }}</div>
+              <div>{{ p.title}}</div>
               <small>{{ p.description }}</small>
             </li>
           </ul>

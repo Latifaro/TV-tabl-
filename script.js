@@ -11,17 +11,7 @@ const app = Vue.createApp({
     methods: {
         toggleMenu() {
             this.menuOpen = !this.menuOpen;
-            const menu = document.querySelector('.menu');
-            const icon = document.querySelector('.menu-icon i');
-            menu.classList.toggle('menu--show');
 
-            if (menu.classList.contains('menu--show')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
         },
 
         async loadChannel(name) {
